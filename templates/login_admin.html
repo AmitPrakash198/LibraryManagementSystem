@@ -1,0 +1,24 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="\static\CSS\login_admin.css">
+    <title>Admin Login</title>
+  </head>
+  <body>
+    <div class="login-form">
+      <h1>Admin Login</h1>
+      <form action="/loginadmin/" method="POST">
+        {%csrf_token%}
+        <p>Usre Name</p>
+        <input type="text" name="user" placeholder="User Name">
+        <p>Password</p>
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+{% extends 'admin_base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Book Details</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+</head>
+<body>
+  {% block body %}
+  <center><u><h1>Already Issued Book Details</h1></u></center>
+<div class="container">
+<table border='1' class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>User Name</th>
+		<th>Book Name</th>
+	    <th>Book ISBN</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+	  {%for i in issuebook%}  
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.username}}</td>
+        <td>{{i.bookname}}</td>
+		<td>{{i.bookisbn}}</td>
+        <td><a href='deleteissuebook/{{i.id}}'>Delete</a> </td>
+      </tr>
+	  {% endfor %} 
+	</tbody>
+</table>	
+</div>
+{% endblock body %}
+</body>
+</html>

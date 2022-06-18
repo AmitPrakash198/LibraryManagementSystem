@@ -1,0 +1,51 @@
+{% extends 'admin_base.html' %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% comment %} <link rel="stylesheet" href="\static\CSS\login_stud.css"> {% endcomment %}
+    <title>Issue Book</title>
+  </head>
+  <body>
+    {% block body %}
+    <div class="issue-book-form">
+      <center><h1>Issue Book</h1></center>
+      <center>
+        <form action="/issuebook/" method="POST">
+        {% csrf_token %}
+        <div class="form-group col-md-4">
+          <label for="inputState">Enrollment No. & Student Name</label>
+            <select name="username" class="form-control">
+              <option selected disabled='true'>Choose</option>
+              {% for i in student %}
+              <option>{{i.username}}</option>
+              {% endfor %}
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Book</label>
+            <select name="bookname" class="form-control">
+              <option selected disabled='true'>Choose</option>
+              {% for i in books %}
+              <option>{{i.bookname}}</option>
+              {% endfor %}
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">ISBN</label>
+            <select name="bookisbn" class="form-control">
+              <option selected disabled='true'>Choose</option>
+              {% for i in books %}
+              <option>{{i.bookisbn}}</option>
+              {% endfor %}
+            </select>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+  </center>
+  </div>
+  {% endblock body %}
+  </body>
+</html>

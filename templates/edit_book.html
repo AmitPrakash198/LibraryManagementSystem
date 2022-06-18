@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>View Student Details</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+</head>
+<body>
+    <center><u><h1>Update Book Details</h1></u></center>
+    <center>
+    <form action="/updatebook/{{addbookdetails.id}}" method="POST">
+    {% csrf_token %}
+        <div class="container">
+            <table border='1' class="table">
+                    <tbody> 
+                        <tr>
+                            <td>ID</td>
+                            <td disable='True'><input type="text" name="id" value="{{addbookdetails.id}}"></td>
+                        <tr>
+                            <td>Book Name</td>
+                            <td><input type="text" name="bookname" value="{{addbookdetails.bookname}}"></td>
+                        </tr>
+                        <tr>
+                            <td>Author Name</td>
+                            <td><input type="text" name="authorname" value="{{addbookdetails.authorname}}"></td>
+                        </tr>
+                        <tr>
+                            <td>Category</td>
+		                    <td><input type="text" name="bookcatagory" value="{{addbookdetails.bookcatagory}}"></td>
+                        </tr>
+                        <tr>
+                            <td>Book ISBN</td>
+		                    <td><input type="text" name="bookisbn" value="{{addbookdetails.bookisbn}}"></td>
+                        </tr>
+                        <tr>
+                            <td>Quantity</td>
+		                    <td><input type="text" name="bookquantity" value="{{addbookdetails.bookquantity}}"></td>
+                        </tr>
+	                </tbody>
+                </table>
+                <input type="submit" value="Update"> |<a href="{% url 'admin_base' %}">Back To Homepage</a>
+                {% if messages%}	
+                {% for updaterecord in messages %}
+                <h3 style="color: green">{{updaterecord}}</h3>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </form>
+        </center>
+    </body>
+</html>

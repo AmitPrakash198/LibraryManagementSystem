@@ -1,0 +1,25 @@
+body{
+    background-color: lightsteelblue;
+}
+.navbar-brand{
+    font-size: 36px;
+    font-family: cursive;
+    font-weight: bold;
+    color: sienna;
+}
+.subimg{
+    margin: 30px;
+}
+.subimg h3{
+    color: antiquewhite;
+    font-family: cursive;
+}
+.admin_img{
+    margin: 30px;
+    background: transparent;
+    border-radius: 50%;
+}
+h1{
+    text-align: center;
+    color: rgb(7, 2, 81);
+}

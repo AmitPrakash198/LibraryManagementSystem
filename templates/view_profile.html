@@ -1,0 +1,47 @@
+{% extends 'student_base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>View Student Details</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+</head>
+<body>
+  {%block body%}
+  <center><u><h1>Profile Details</h1></u></center>
+<div class="container">
+<center>
+<table border='1' class="table">
+    <tr>
+        <td>Name</td>
+        <td>{{student.username}}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{student.useremail}}</td>
+    </tr>
+    <tr>
+        <td>Enrollment No.</td>
+        <td>{{student.userenroll}}</td>
+    </tr>
+    <tr>
+        <td>Branch</td>
+        <td>{{student.userbranch}}</td>
+    </tr>
+    <tr>
+        <td>User Id</td>
+        <td>{{student.userid}}</td>
+    </tr>
+    <tr>
+        <td>Action</td>
+        <td><a href='edit_profile/{{student.id}}'>Edit</a> | <a href='delete_profile/{{student.id}}'>Delete</a></td>
+    </tr>
+</table>
+</center>	
+</div>
+{% endblock body%}
+</body>
+</html>

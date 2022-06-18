@@ -1,0 +1,43 @@
+{% extends 'admin_base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>View Student Details</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+</head>
+<body>
+  {%block body%}
+  <center><u><h1>Registered Student Details</h1></u></center>
+<div class="container">
+<table border='1' class="table">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+		    <th>Student Email</th>
+		    <th>Student Enrollment No.</th>
+		    <th>Student Branch</th>
+		    <th>User Id</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+	  {%for i in students%}  
+      <tr>
+        <td>{{i.username}}</td>
+        <td>{{i.useremail}}</td>
+		    <td>{{i.userenroll}}</td>
+		    <td>{{i.userbranch}}</td>
+		    <td>{{i.userid}}</td>
+        <td><a href='edit/{{i.id}}'>Edit</a> | <a href='delete/{{i.id}}'>Delete</a> </td>
+      </tr>
+	  {% endfor %} 
+	</tbody>
+</table>	
+</div>
+{% endblock body%}
+</body>
+</html>

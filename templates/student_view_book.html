@@ -1,0 +1,43 @@
+{% extends 'student_base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Book Details</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+</head>
+<body>
+  {% block body %}
+  <center><u><h1>Available Book Details</h1></u></center>
+<div class="container">
+<table border='1' class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Book Name</th>
+		<th>Author Name</th>
+	    <th>Category</th>
+	    <th>Book ISBN</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+	  {%for i in books%}  
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.bookname}}</td>
+        <td>{{i.authorname}}</td>
+		<td>{{i.bookcatagory}}</td>
+		<td>{{i.bookisbn}}</td>
+		<td>{{i.bookquantity}}</td>
+      </tr>
+	  {% endfor %} 
+	</tbody>
+</table>	
+</div>
+{% endblock body %}
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends 'admin_base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>View Student Details</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+</head>
+<body>
+    {% block body %}
+    <center><u><h1>Update Student Details</h1></u></center>
+    <center>
+    <form action="/update/{{Userregistration.id}}" method="POST">
+    {% csrf_token %}
+        <div class="container">
+            <table border='1' class="table">
+                    <tbody> 
+                        <tr>
+                            <td>User Name</td>
+                            <td><input type="text" name="username" value="{{Userregistration.username}}"></td>
+                        <tr>
+                            <td>User Email</td>
+                            <td><input type="text" name="useremail" value="{{Userregistration.useremail}}"></td>
+                        </tr>
+                        <tr>
+                            <td>User Enrollment No.</td>
+		                    <td><input type="text" name="userenroll" value="{{Userregistration.userenroll}}"></td>
+                        </tr>
+                        <tr>
+                            <td>User Branch</td>
+		                    <td><input type="text" name="userbranch" value="{{Userregistration.userbranch}}"></td>
+                        </tr>
+                        <tr>
+                            <td>User ID</td>
+		                    <td><input type="text" name="userid" value="{{Userregistration.userid}}"></td>
+                        </tr>
+                        <tr>
+                            <td>User Password</td>
+		                    <td><input type="password" name="userpass" value="{{Userregistration.userpass}}"></td>
+                        </tr>
+	                </tbody>
+                </table>
+                <input type="submit" value="Update"> |<a href="{% url 'admin_base' %}">Back To Homepage</a>
+                {% if messages%}	
+                {% for updaterecord in messages %}
+                <h3 style="color: green">{{updaterecord}}</h3>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </form>
+        </center>
+        {% endblock body %}
+    </body>
+</html>

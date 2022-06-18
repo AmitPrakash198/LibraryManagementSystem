@@ -1,0 +1,36 @@
+{% extends 'admin_base.html' %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% comment %} <link rel="stylesheet" href="\static\CSS\stud_reg.css"> {% endcomment %}
+    <title>Student Registration</title>
+  </head>
+  <body>
+    {% block body %}
+  <center>
+    <div class="register-form">
+      <h1>Student Registration</h1>
+      <form action="/stud/reg/" method="POST">
+        {% csrf_token %}
+        <p>Full Name</p>
+        <input type="text" name="username" placeholder="firstname">
+        <p>Email</p>
+        <input type="Email" name="useremail" placeholder="lastname">
+        <p>Enrollment No.</p>
+        <input type="text" name="userenroll" placeholder="Enrollment No.">
+        <p>Branch</p>
+        <input type="text" name="userbranch" placeholder="Branch">
+        <p>Usre Id</p>
+        <input type="text" name="userid" placeholder="User Name">
+        <p>Password</p>
+        <input type="password" name="userpass" placeholder="Password"><br><br><br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </center>
+    {% endblock body %}
+  </body>
+</html>
